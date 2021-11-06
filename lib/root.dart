@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:autocare/screens/home.dart';
-import 'package:autocare/screens/search.dart';
-import 'package:autocare/screens/new_inspect.dart';
-import 'package:autocare/screens/profile.dart';
+import 'package:autocare/screens/home/home.dart';
+import 'package:autocare/screens/search/search.dart';
+import 'package:autocare/screens/inspect/new_inspect.dart';
+import 'package:autocare/screens/auth/profile.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -12,68 +12,50 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
-  int _currentTabIndex = 0;
+  int _selectedIndex = 0;
 
-  //PAGES
-  final _kTabPages = <Widget>[
-    const HomeScreen(),
-    const SearchScreen(),
-    const InspectScreen(),
-    const ProfileScreen(),
+  static const List<Widget> _pages = <Widget>[
+    HomeScreen(),
+    SearchScreen(),
+    InspectScreen(),
+    ProfileScreen(),
   ];
-
-  _buildBottomNavBar() {
-    //NAV ITEMS
-    final _kBottomNavbarItems = <BottomNavigationBarItem>[
-      const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-      const BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-      const BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Inspections'),
-      const BottomNavigationBarItem(
-          icon: Icon(Icons.person), label: 'Profile'),
-    ];
-    //assert(_kTabPages.length == _kBottomNavbarItems);
-    return BottomNavigationBar(
-      items: _kBottomNavbarItems,
-      currentIndex: _currentTabIndex,
-      type: BottomNavigationBarType.fixed,
-      onTap: (int index) {
-        setState(() {
-          _currentTabIndex = index;
-        });
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _kTabPages[_currentTabIndex],
-      /**
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        tooltip: 'Add new a inspection',
-        onPressed: () {},
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
       ),
-       */
-      drawer: Drawer(
-        child: drawerItems,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: Colors.white10,
+        selectedFontSize: 20,
+        selectedIconTheme: IconThemeData(color: Colors.deepOrangeAccent, size: 30),
+        selectedItemColor: Colors.deepOrangeAccent,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        unselectedIconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        unselectedItemColor: Colors.black,
+        elevation: 0,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_box), label: 'Inspections'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
-      bottomNavigationBar: _buildBottomNavBar(),
     );
   }
 
-  final drawerItems = ListView(
-    children: <Widget>[
-      DrawerHeader(
-        child: Text('Header'),
-        decoration: BoxDecoration(color: Colors.amber[50]),
-      ),
-      ListTile(
-        title: Text('item 1'),
-      ),
-      ListTile(
-        title: Text('item 2'),
-      ),
-    ],
-  );
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 }

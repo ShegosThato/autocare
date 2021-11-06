@@ -1,12 +1,19 @@
-
 import 'package:flutter/material.dart';
-import 'package:autocare/screens/profile.dart';
-import 'package:autocare/screens/search.dart';
-import 'package:autocare/screens/new_inspect.dart';
+import 'package:flutter/services.dart';
+import 'package:autocare/screens/auth/profile.dart';
+import 'package:autocare/screens/search/search.dart';
+import 'package:autocare/screens/inspect/new_inspect.dart';
 import 'package:autocare/screens/splash.dart';
+import 'package:autocare/screens/auth/login.dart';
+import 'package:autocare/screens/auth/signup.dart';
 import 'package:autocare/root.dart';
 
-void main() {
+void main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+  WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(MyApp());
 }
 
@@ -16,17 +23,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Teabag Inspection",
+      title: "AutoGrandis",
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
       routes: {
-        '/': (context) => RootScreen(),
+        '/': (context) => SplashScreen(),
+        '/root': (context) => RootScreen(),
         '/search': (context) => SearchScreen(),
         '/new_inspect': (context) => InspectScreen(),
         '/profile': (context) => ProfileScreen(),
-        '/splash': (context) => SplashScreen(),
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
       },
     );
   }
 }
-
