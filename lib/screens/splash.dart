@@ -33,11 +33,15 @@ class _SplashScreenState extends State<SplashScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Container(
-              child: Image.asset(
-                'assets/images/Banner.png',
-                width: 100,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                child: Image.asset(
+                  'assets/images/Banner.png',
+                  width: 80,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),

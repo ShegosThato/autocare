@@ -31,10 +31,13 @@ class _RootScreenState extends State<RootScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         backgroundColor: Colors.white10,
-        selectedFontSize: 20,
-        selectedIconTheme: IconThemeData(color: Colors.deepOrangeAccent, size: 30),
+        selectedIconTheme:
+            IconThemeData(color: Colors.deepOrangeAccent, size: 30),
         selectedItemColor: Colors.deepOrangeAccent,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.normal,
+          fontSize: 14,
+        ),
         unselectedIconTheme: IconThemeData(
           color: Colors.black,
         ),

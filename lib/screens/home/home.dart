@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:autocare/components/button_col.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -35,7 +36,8 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(
             color: Colors.deepOrangeAccent,
             letterSpacing: 1.5,
-            fontFamily: 'Roboto',
+            fontFamily: 'RedhatMono',
+            fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
@@ -48,54 +50,49 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
-          color: Colors.grey[200],
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            Stack(
+              alignment: Alignment.topCenter,
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.transparent,
-                    child: Image.asset(
-                      "assets/images/Banner.png",
-                      width: 100,
-                      
-                    ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    "assets/images/Banner.png",
+                    width: 100,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Divider(),
-                Expanded(
-                  flex: 1,
+                Positioned(
+                  top: 300.0,
+                  bottom: 10,
+                  
                   child: Container(
-                    child: const Text('1'),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color.fromRGBO(207, 216, 220, 1),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: const Text('1'),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color.fromRGBO(207, 216, 220, 1),
-                    ),
+                    color: Colors.amber,
+                    width: MediaQuery.of(context).size.width * 0.6,
                   ),
                 ),
               ],
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                elevation: 3,
+                borderOnForeground: false,
+                child: ListTile(
+                  leading: Icon(Icons.recent_actors),
+                  title: Text('Title'),
+                  subtitle: const Text('subtitle'),
+                  trailing: ElevatedButton(
+                    child: Icon(Icons.settings),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

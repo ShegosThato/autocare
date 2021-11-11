@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:autocare/screens/auth/profile.dart';
 import 'package:autocare/screens/search/search.dart';
 import 'package:autocare/screens/inspect/new_inspect.dart';
-import 'package:autocare/screens/splash.dart';
 import 'package:autocare/screens/auth/login.dart';
 import 'package:autocare/screens/auth/signup.dart';
 import 'package:autocare/root.dart';
@@ -26,8 +25,7 @@ class MyApp extends StatelessWidget {
       title: "AutoGrandis",
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => SplashScreen(),
-        '/root': (context) => RootScreen(),
+        '/': (context) => RootScreen(),
         '/search': (context) => SearchScreen(),
         '/new_inspect': (context) => InspectScreen(),
         '/profile': (context) => ProfileScreen(),

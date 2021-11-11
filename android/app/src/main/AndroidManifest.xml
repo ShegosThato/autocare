@@ -2,7 +2,7 @@
     package="com.example.autocare">
    <application
         android:label="AutoGrandis"
-        android:icon="@mipmap/laucher_icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
