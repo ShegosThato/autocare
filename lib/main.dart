@@ -5,7 +5,8 @@ import 'package:autocare/screens/search/search.dart';
 import 'package:autocare/screens/inspect/new_inspect.dart';
 import 'package:autocare/screens/auth/login.dart';
 import 'package:autocare/screens/auth/signup.dart';
-import 'package:autocare/root.dart';
+import 'package:autocare/screens/root.dart';
+import 'package:autocare/util/theme_config.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "AutoGrandis",
       debugShowCheckedModeBanner: false,
+      theme: ThemeConfig.theme,
       routes: {
         '/': (context) => RootScreen(),
         '/search': (context) => SearchScreen(),

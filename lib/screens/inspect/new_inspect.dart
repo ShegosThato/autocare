@@ -7,7 +7,10 @@ class InspectScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inspect'),
+        title: Text(
+          'Inspect',
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+          ),
         centerTitle: true,
       ),
       body: Center(

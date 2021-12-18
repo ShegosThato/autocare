@@ -1,21 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:autocare/components/button_col.dart';
-
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  //STATE
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Home Screen'),
-    );
-  }
-}
+import 'header.dart';
+import 'body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,8 +9,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
           color: Colors.black,
           onPressed: () => {},
@@ -33,17 +16,11 @@ class HomeScreen extends StatelessWidget {
         ),
         title: Text(
           'AutoGrandis',
-          style: TextStyle(
-            color: Colors.deepOrangeAccent,
-            letterSpacing: 1.5,
-            fontFamily: 'RedhatMono',
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            color: Colors.black,
             onPressed: () => {},
             icon: Icon(Icons.notifications_on_rounded),
           ),
@@ -53,44 +30,17 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    "assets/images/Banner.png",
-                    width: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  top: 300.0,
-                  bottom: 10,
-                  
-                  child: Container(
-                    color: Colors.amber,
-                    width: MediaQuery.of(context).size.width * 0.6,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 3,
-                borderOnForeground: false,
-                child: ListTile(
-                  leading: Icon(Icons.recent_actors),
-                  title: Text('Title'),
-                  subtitle: const Text('subtitle'),
-                  trailing: ElevatedButton(
-                    child: Icon(Icons.settings),
-                    onPressed: () {},
-                  ),
+            Header(),
+            Divider(),
+            Card(
+              color: Colors.lightBlueAccent[200],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
                 ),
               ),
+              child: Body(),
             ),
           ],
         ),

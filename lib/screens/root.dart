@@ -42,7 +42,7 @@ class _RootScreenState extends State<RootScreen> {
           color: Colors.black,
         ),
         unselectedItemColor: Colors.black,
-        elevation: 0,
+        elevation: 5,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
