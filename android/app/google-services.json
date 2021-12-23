@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1017491029322",
+    "project_id": "autocare-fa103",
+    "storage_bucket": "autocare-fa103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017491029322:android:90c6214f9e2506aaa155b3",
+        "android_client_info": {
+          "package_name": "com.lytyear.softworks.autocare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017491029322-iksa1t95k7r2rv7lg9vo9r2dcpsq4op2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lytyear.softworks.autocare",
+            "certificate_hash": "9992fb63a3f3affc08217444531d8a114c1be797"
+          }
+        },
+        {
+          "client_id": "1017491029322-busguci690ipl847jdurklfe634at78e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmSEqm9D14fYjaCPRQOcSEwhFXN6stnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017491029322-busguci690ipl847jdurklfe634at78e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
