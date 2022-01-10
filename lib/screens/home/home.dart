@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'header.dart';
-import 'body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,18 +28,18 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            Header(),
-            Divider(),
-            Card(
-              color: Colors.lightBlueAccent[200],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
-                ),
-              ),
-              child: Body(),
-            ),
+            // Header(),
+            // Divider(),
+            // Card(
+            //   color: Colors.lightBlueAccent[200],
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.only(
+            //       topLeft: Radius.circular(10.0),
+            //       topRight: Radius.circular(10.0),
+            //     ),
+            //   ),
+            // ),
+            Text('Home'),
           ],
         ),
       ),

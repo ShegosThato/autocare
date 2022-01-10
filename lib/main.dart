@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       title: "AutoGrandis",
       debugShowCheckedModeBanner: false,
       theme: ThemeConfig.theme,
+      initialRoute: "/",
       routes: {
         '/': (context) => RootScreen(),
         '/search': (context) => SearchScreen(),
